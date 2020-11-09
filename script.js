@@ -1,6 +1,8 @@
 'use strict';
 
 /// Selecting elements
+const player0El = document.querySelector('.player--0');
+const player1El = document.querySelector('.player--1');
 const score0El = document.querySelector('#score--0');
 const score1El = document.getElementById('score--1');
 const current0El = document.getElementById('current--0');
@@ -36,9 +38,14 @@ btnRoll.addEventListener('click', function () {
       `current--${activePlayer}`
     ).textContent = currentScore;
   } else {
-    // Switch to next player
+    // dice === 1
+    // Reset Current player
     document.getElementById(`current--${activePlayer}`).textContent = 0;
     currentScore = 0;
-    activePlayer = activePlayer === 0 ? 1 : 0;
+
+    // Switch to next player
+    activePlayer = activePlayer === 0 ? 1 : 0; // 0 -> 1 || 1 -> 0
+    player0El.classList.toggle('player--active'); // if (have -> dont have)
+    player1El.classList.toggle('player--active'); // if (dont have -> have)
   }
 });
