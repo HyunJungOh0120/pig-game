@@ -76,3 +76,25 @@ btnHold.addEventListener('click', function () {
     }
   }
 });
+
+btnNew.addEventListener('click', function () {
+  /// 1. SET ALL SCORES TO 0
+  currentScore = 0;
+  activePlayer = 0;
+  score = [0, 0];
+  playing = true;
+
+  const allScores = document.querySelectorAll('.score'); // Array
+  const allCurrentScores = document.querySelectorAll('.current-score'); // Array
+
+  for (let i = 0; i < allScores.length; i++) {
+    allScores[i].textContent = 0;
+  }
+  for (let i = 0; i < allCurrentScores.length; i++) {
+    allCurrentScores[i].textContent = 0;
+  }
+
+  // 2. SET PLAYER 1 AS START PLAYER
+  document.querySelector(`.player--0`).classList.toggle('player--active');
+  document.querySelector(`.player--1`).classList.toggle('player--active');
+});
